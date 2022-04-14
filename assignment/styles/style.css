@@ -1,5 +1,13 @@
 /* give your assignment a fun background color */
 
+/* Color background taken from: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
+Made updates to allow for custom variables */
+:root {
+    --clr-blue: hsl(198, 45%, 45%);
+    --clr-light: hsl(94, 62%, 93%);
+    --clr-orange: hsl(31, 91%, 60%);
+}
+
 body {
-    background-color: hsl(222, 89%, 93%);
+    background: linear-gradient(0.25turn, var(--clr-blue), var(--clr-light), var(--clr-orange));
 }

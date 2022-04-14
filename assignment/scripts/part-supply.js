@@ -128,6 +128,7 @@ for (let supplyChange of supplyChanges) {
 // FINALLY, I get to log these results to a table!
 console.table(supplyTotalArray)
 
+
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
 //    There are 572 parts in total, and each box holds 7 parts.
@@ -135,3 +136,28 @@ console.table(supplyTotalArray)
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
+
+// Initialize the starting amount
+let parts = 572
+// Initialized boxes filled
+let filledBoxes = 0
+// Because each box holds exactly seven items, it is constant
+const boxAmount = 7
+
+// Loop through the number of parts until there is at most one less than
+// the total amount that can fit in a box
+while (parts > (boxAmount - 1)) {
+
+    // Since there is enough parts to fully fill a box, reduce the total
+    // parts amount by the boxAmount value
+    parts -= boxAmount
+
+    // Increment the amount of boxes fully filled
+    filledBoxes++
+}
+
+// Therefore, the remaining `parts` total is the number of parts
+// left after all boxes were fully filled
+console.log(`
+Total boxes filled: ${filledBoxes}
+    with a remaining total of ${parts} parts`)
