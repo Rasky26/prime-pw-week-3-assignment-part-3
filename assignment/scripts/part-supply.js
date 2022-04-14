@@ -30,6 +30,24 @@ console.log('5. Adding 25 to supplyChanges.', supplyChanges);
 //    - if the value is negative, format the log as 'Removed x parts.' 
 console.log('6. Showing supplyChanges...');
 
+// Step through `supplyChanges` array
+for (let supply of supplyChanges) {
+    console.log(supply)
+
+    // Supply amount greater than zero
+    if (supply > 0) {
+        console.log(`Added ${supply} parts.`)
+
+    // Supply amount less than zero
+    } else if (supply < 0) {
+        console.log(`Remvoed ${supply} parts.`)
+
+    // Default value should ONLY be zero now
+    } else {
+        console.log('No Change.')
+    }
+
+}
 
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
