@@ -31,16 +31,15 @@ console.log('5. Adding 25 to supplyChanges.', supplyChanges);
 console.log('6. Showing supplyChanges...');
 
 // Step through `supplyChanges` array
-for (let supply of supplyChanges) {
-    console.log(supply)
+for (let index in supplyChanges) {
 
-    // Supply amount greater than zero
-    if (supply > 0) {
-        console.log(`Added ${supply} parts.`)
+    // Index amount greater than zero
+    if (supplyChanges[index] > 0) {
+        console.log(`Added ${supplyChanges[index]} parts.`)
 
-    // Supply amount less than zero
-    } else if (supply < 0) {
-        console.log(`Remvoed ${supply} parts.`)
+    // Index amount less than zero
+    } else if (supplyChanges[index] < 0) {
+        console.log(`Removed ${supplyChanges[index]} parts.`)
 
     // Default value should ONLY be zero now
     } else {
