@@ -45,7 +45,6 @@ for (let index in supplyChanges) {
     } else {
         console.log('No Change.')
     }
-
 }
 
 // STRETCH GOALS
@@ -66,12 +65,68 @@ for (let value of supplyChanges) {
     } else {
         console.log('No Change.')
     }
-
 }
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
 console.log('8. Total supplies available is:');
+
+// You had mentioned the `console.table()` feature in my last assignment, so I
+// set out to see how I could put the results from Step 8. into a console.table().
+//
+// Appears to work, but I am only 70% confident that I did this correctly.
+//
+// Found this tutorial showing how to set the supply values to a console.table()
+// Link: https://developer.mozilla.org/en-US/docs/Web/API/console/table
+// Captures each change as its own object along with a message.
+function TrackSupply(supplyChange, runningTotal) {
+
+    // Current change value in supply amounts
+    this.supplyChange = supplyChange
+
+    // Running total of supply
+    this.runningTotal = runningTotal
+
+    // Attempted to add a customized message related to supply numbers.
+    //
+    // Check if total supply level is negative
+    if (this.runningTotal < 0) {
+        this.message = "<<ERROR>> Negative supply"
+    
+    // Check if the total supply is zero
+    } else if (this.runningTotal === 0) {
+        this.message = "SUPPLY EMPTY! More supply needed!"
+
+    // Set a message for low total supply
+    } else if (this.runningTotal < 5) {
+        this.message = "Supply critically low."
+
+    // Default message for acceptable supply levels
+    } else {
+        this.message = "Acceptable supply levels."
+    }
+}
+
+// Initialize the supply count
+let supplyTotal = 0
+// Initialize the supply total array
+const supplyTotalArray = []
+
+// Loop through the supplyChanges array
+for (let supplyChange of supplyChanges) {
+
+    // Update the total supply amount
+    supplyTotal += supplyChange
+
+    // Set the various amounts to an object
+    const outcome = new TrackSupply(supplyChange, supplyTotal)
+
+    // Append those objects into an array
+    supplyTotalArray.push(outcome)
+}
+
+// FINALLY, I get to log these results to a table!
+console.table(supplyTotalArray)
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
